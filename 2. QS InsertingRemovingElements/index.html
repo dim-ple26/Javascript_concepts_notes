@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container red bggreen">
+        <div class="box" style="display: flex;" > Hey i am a box</div>
+        <div class="box" data-createdby="dimple"> hey i am second box</div>
+   
+        <script>
+            // INSERTING ELEMENTS
+            let div = document.createElement("div");
+            div.innerHTML="I have been inserted inside my container <b>by dimple</b>"
+            div.setAttribute("class","creatd");
+            document.querySelector(".container").append(div)
+            //  by using append we get out element in the end
+
+            document.querySelector(".container").before(div)
+            // at first 
+            document.querySelector(".container").after(div)
+            // at last
+
+            document.querySelector(".container").prepend(div)
+            // again at first
+            // replacewith() replaces node with given node
+
+
+
+            let cont = document.querySelector(".container")
+            cont.insertAdjacentHTML("afterend", "<b>we are learning our javascript from code with harrryyy</b>")
+            // at the end of the container
+            // afterbegin :-> first beginning of the container
+
+
+
+        </script>
+   
+    </div>
+
+
+</body>
+</html>

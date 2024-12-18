@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color:#339c5e;
+        ;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 30px;
+      }
+
+      .box {
+        color:black;
+            height: 100px;
+            width: 610px;
+            border: 2px saddlebrown;
+            background-color: rgb(200, 230, 29);
+            border-radius: 0px;
+            justify-content: center;
+            align-items: center;
+            margin:5px;
+            box-shadow: 5px 5px 10px rgba(0, 0,0, 0.5);
+            text-align: center;
+      }
+      .h1{
+        
+        color:black;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+        <h1>HACKER TERMINAL</h1>
+    </div>
+
+    <div>Initializing Hacking...</div>
+
+    <script>
+      const addItem = async (item) => {
+        await randomDelay();
+        let div = document.createElement("div");
+        div.innerHTML = item;
+        document.body.append(div);
+      };
+
+      const randomDelay = () => {
+        return new Promise((resolve, reject) => {
+          timeout = 1 + 6 * Math.random();
+          setTimeout(() => {
+            resolve();
+          }, timeout * 1000);
+        });
+      };
+
+      async function main() {
+        let t = setInterval(() => {
+          let divs = document.body.getElementsByTagName("div");
+          if (divs.length > 0) {
+            let last = divs[divs.length - 1]; // selecting the last div
+            if (last.innerHTML.endsWith("...")) {
+              last.innerHTML = last.innerHTML.slice(0, -3); // remove ...
+            } else {
+              last.innerHTML = last.innerHTML + "."; // add ...
+            }
+          }
+        }, 100);
+
+        let text = [
+          "Initalized Hacking _Reading Data Now ",
+          "Reading Your Files",
+          "Password Files Detected",
+          "Sending all passwords and personal files to server",
+          "Cleaning Up",
+        ];
+
+        for (const item of text) {
+          await addItem(item);
+        }
+        await randomDelay();
+        clearInterval(t);
+      }
+      main();
+    </script>
+  </body>
+</html>
