@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+<style>
+    .child{
+        background:aliceblue;
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+    }
+    .childContainer{
+        background:rgb(50, 159, 255);
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+    }
+    .container{
+        background:rgb(60, 204, 91);
+        border: 2px solid black;
+        padding: 14px;
+        margin: 14px;
+    }
+</style>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <section class="childContainer"></section>
+        <div class="child">
+            I am a child.
+        </div>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener("click",(e)=>{
+    alert("Child was  Clicked")
+    e.stopPropagation()
+        })
+
+    document.querySelector(".childContainer").addEventListener("click",(e)=>{
+        alert("Childcontainer was Clicked")
+    })
+
+    document.querySelector(".container").addEventListener("click",(e)=>{
+        alert("Container was Clicked")
+    })
+
+
+  let a=  setInterval(()=> {
+         document.querySelector(".childContainer").style.background = "pink"
+    },3000);
+  console.log(a)
+
+  let b = setTimeout(()=> {
+    document.querySelector(".child").style.background="blue"
+  },5000);
+  console.log(b)
+
+  // for clearing we use cleartimeout() and clear interval()
+  
+
+
+    </script>
+</body>
+</html>
